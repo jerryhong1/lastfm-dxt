@@ -113,6 +113,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "search_music",
     description: "Search for tracks or artists on Last.fm",
+    annotations: {
+      title: "Search Music"
+    },
     parameters: z.object({
       query: z.string().describe("Search query for music"),
       type: z.enum(["track", "artist"]).describe("Type of search (track or artist)"),
@@ -146,6 +149,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_user_stats",
     description: "Get comprehensive listening statistics for a Last.fm user",
+    annotations: {
+      title: "Get User Statistics"
+    },
     parameters: z.object({
       username: z.string().optional().describe(`Last.fm username${defaultUsername ? ` (default: ${defaultUsername})` : ''}`),
       period: z.enum(["overall", "7day", "1month", "3month", "6month", "12month"])
@@ -213,6 +219,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_recent_tracks",
     description: "Get recent tracks for a Last.fm user, optionally filtered by time range",
+    annotations: {
+      title: "Get Recent Tracks"
+    },
     parameters: z.object({
       username: z.string().optional().describe(`Last.fm username${defaultUsername ? ` (default: ${defaultUsername})` : ''}`),
       limit: z.number().default(50).describe("Maximum number of tracks to return"),
@@ -279,6 +288,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_now_playing",
     description: "Get the currently playing track for a Last.fm user",
+    annotations: {
+      title: "Get Now Playing"
+    },
     parameters: z.object({
       username: z.string().optional().describe(`Last.fm username${defaultUsername ? ` (default: ${defaultUsername})` : ''}`),
     }),
@@ -304,6 +316,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_track_info",
     description: "Get detailed information about a specific track",
+    annotations: {
+      title: "Get Track Info"
+    },
     parameters: z.object({
       artist: z.string().describe("Artist name"),
       track: z.string().describe("Track name"),
@@ -329,6 +344,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_artist_info",
     description: "Get detailed information about an artist",
+    annotations: {
+      title: "Get Artist Info"
+    },
     parameters: z.object({
       artist: z.string().describe("Artist name"),
       username: z.string().optional().describe("Username for personalized data (play count)"),
@@ -359,6 +377,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_top_artists",
     description: "Get a user's top artists for a specific time period",
+    annotations: {
+      title: "Get Top Artists"
+    },
     parameters: z.object({
       username: z.string().optional().describe(`Last.fm username${defaultUsername ? ` (default: ${defaultUsername})` : ''}`),
       period: z.enum(["overall", "7day", "1month", "3month", "6month", "12month"])
@@ -387,6 +408,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_top_tracks",
     description: "Get a user's top tracks for a specific time period",
+    annotations: {
+      title: "Get Top Tracks"
+    },
     parameters: z.object({
       username: z.string().optional().describe(`Last.fm username${defaultUsername ? ` (default: ${defaultUsername})` : ''}`),
       period: z.enum(["overall", "7day", "1month", "3month", "6month", "12month"])
@@ -415,6 +439,9 @@ export function setupTools(server: FastMCP, client: LastFmClient, defaultUsernam
   server.addTool({
     name: "get_loved_tracks",
     description: "Get a user's loved/favorited tracks",
+    annotations: {
+      title: "Get Loved Tracks"
+    },
     parameters: z.object({
       username: z.string().optional().describe(`Last.fm username${defaultUsername ? ` (default: ${defaultUsername})` : ''}`),
       limit: z.number().default(50).describe("Maximum number of tracks to return"),

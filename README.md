@@ -8,28 +8,35 @@ An unofficial Desktop Extension (DXT) server that provides access to Last.fm mus
 ## Features
 
 ### Tools
-- **search_music** - Search for tracks or artists
-- **get_user_stats** - Get comprehensive user listening statistics
-- **get_track_info** - Get detailed information about a specific track
-- **get_artist_info** - Get detailed information about an artist
-- **compare_users** - Compare listening habits between two users
-- **get_recommendations** - Get music recommendations based on user's taste
+- **Search Music** (`search_music`) - Search for tracks or artists
+- **Get User Statistics** (`get_user_stats`) - Get comprehensive user listening statistics with configurable sections
+- **Get Recent Tracks** (`get_recent_tracks`) - Get recently played tracks with time range filtering
+- **Get Now Playing** (`get_now_playing`) - Get the currently playing track
+- **Get Track Info** (`get_track_info`) - Get detailed information about a specific track
+- **Get Artist Info** (`get_artist_info`) - Get detailed information about an artist
+- **Get Top Artists** (`get_top_artists`) - Get a user's top artists for a specific time period
+- **Get Top Tracks** (`get_top_tracks`) - Get a user's top tracks for a specific time period
+- **Get Loved Tracks** (`get_loved_tracks`) - Get a user's loved/favorited tracks
 
-### Resources
-- **User Profile**: `lastfm://user/{username}/profile` - Get user information and statistics
-- **Recent Tracks**: `lastfm://user/{username}/recent` - Get recently scrobbled tracks
-- **Now Playing**: `lastfm://user/{username}/nowplaying` - Get currently playing track
-- **Top Artists**: `lastfm://user/{username}/top/artists/{period}` - Get top artists for a time period
-- **Top Tracks**: `lastfm://user/{username}/top/tracks/{period}` - Get top tracks for a time period
-- **Loved Tracks**: `lastfm://user/{username}/loved` - Get user's loved/favorited tracks
+## Installation
 
-## Setup
+### As a Desktop Extension (DXT)
 
-### Prerequisites
+The easiest way to use this server is to install it as a Desktop Extension in Claude Desktop.
+
+1. Download the latest `.dxt` file from the [releases page](https://github.com/jerryhong1/lastfm-mcp-server/releases)
+2. In Claude Desktop, go to Settings → Developer → Install Desktop Extension
+3. Select the downloaded `.dxt` file
+4. Enter your Last.fm API key when prompted (get one at https://www.last.fm/api)
+5. Optionally set a default username to avoid typing it repeatedly
+
+### Manual Setup
+
+#### Prerequisites
 - Node.js 18+ 
 - Last.fm API key (get one at https://www.last.fm/api)
 
-### Installation
+#### Installation
 
 1. Clone the repository:
 ```bash
@@ -89,7 +96,7 @@ npx @modelcontextprotocol/inspector node dist/index.js
 ## API Reference
 
 ### Time Periods
-For resources and tools that accept time periods:
+For tools that accept time periods:
 - `overall` - All time (default)
 - `7day` - Last 7 days
 - `1month` - Last month
@@ -97,14 +104,28 @@ For resources and tools that accept time periods:
 - `6month` - Last 6 months
 - `12month` - Last 12 months
 
+### Time Range Filtering (get_recent_tracks)
+- `all` - No time filtering (default)
+- `today` - Last 24 hours
+- `week` - Last 7 days
+- `month` - Last 30 days
+- `custom` - Custom time range using `custom_hours`, `from_date`, or `to_date`
+
+### Detail Levels
+All tools support a `detail_level` parameter:
+- `minimal` - Just essential data (names, counts)
+- `standard` - Excludes verbose metadata (default)
+- `full` - Complete response with all data
+
 ### Example Queries
 
 Ask Claude things like:
 - "What's my current music taste based on my Last.fm profile?"
 - "Show me what [username] is currently listening to"
-- "Compare my music taste with [friend's username]"
-- "Find similar artists to my top 5 most played artists"
 - "What were my top tracks last month?"
+- "Search for tracks by Radiohead"
+- "Get info about the song 'Bohemian Rhapsody' by Queen"
+- "Show my listening stats for the past week"
 
 ## Development
 
@@ -116,8 +137,6 @@ src/
 │   └── lastfm.ts     # Last.fm API client
 ├── types/
 │   └── lastfm.ts     # TypeScript type definitions
-├── resources/
-│   └── index.ts      # MCP resource handlers
 └── tools/
     └── index.ts      # MCP tool implementations
 ```
