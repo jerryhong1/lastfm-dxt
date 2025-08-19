@@ -1,6 +1,6 @@
-# Last.fm (Unofficial) MCP Server
+# Last.fm (Unofficial) DXT
 
-An unofficial Model Context Protocol (MCP) server that provides access to Last.fm music data and listening history.
+An unofficial Desktop Extension (DXT) server that provides access to Last.fm music data and listening history.
 
 ## Features
 
