@@ -4,6 +4,7 @@
   "display_name": "Last.fm (Unofficial)",
   "version": "0.1.0",
   "description": "Access your Last.fm music data and listening history through MCP",
+  "icon": "icon.png",
   "author": {
     "name": "Jerry Hong",
     "url": "https://jerryhong.io"
