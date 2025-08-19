@@ -24,7 +24,7 @@ An unofficial Desktop Extension (DXT) server that provides access to Last.fm mus
 
 The easiest way to use this server is to install it as a Desktop Extension in Claude Desktop.
 
-1. Download the [`lastfm-mcp-server.dxt`](https://github.com/jerryhong1/lastfm-mcp-server/raw/main/lastfm-mcp-server.dxt) file
+1. Download the [`lastfm-mcp-server.dxt`](https://github.com/jerryhong1/lastfm-dxt/raw/main/lastfm-mcp-server.dxt) file
 2. In Claude Desktop, go to Settings → Developer → Install Desktop Extension
 3. Select the downloaded `.dxt` file
 4. Enter your Last.fm API key when prompted (get one at https://www.last.fm/api)
@@ -40,8 +40,8 @@ The easiest way to use this server is to install it as a Desktop Extension in Cl
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd lastfm-mcp-server
+git clone https://github.com/jerryhong1/lastfm-dxt.git
+cd lastfm-dxt
 ```
 
 2. Install dependencies:
@@ -78,7 +78,7 @@ Add this server to your Claude Desktop configuration file:
   "mcpServers": {
     "lastfm": {
       "command": "node",
-      "args": ["/path/to/lastfm-mcp-server/dist/index.js"],
+      "args": ["/path/to/lastfm-dxt/dist/index.js"],
       "env": {
         "LASTFM_API_KEY": "your-api-key-here"
       }
