@@ -1,3 +1,6 @@
+
+<img width="1578" height="888" alt="cover photo" src="https://github.com/user-attachments/assets/df983dd4-8e43-424d-8655-6ab08a2b3304" />
+
 # Last.fm (Unofficial) DXT
 
 An unofficial Desktop Extension (DXT) server that provides access to Last.fm music data and listening history.
