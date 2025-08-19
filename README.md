@@ -7,14 +7,6 @@ An unofficial Desktop Extension (DXT) server that provides access to Last.fm mus
 
 ## Features
 
-### Resources
-- **User Profile**: `lastfm://user/{username}/profile` - Get user information and statistics
-- **Recent Tracks**: `lastfm://user/{username}/recent` - Get recently scrobbled tracks
-- **Now Playing**: `lastfm://user/{username}/nowplaying` - Get currently playing track
-- **Top Artists**: `lastfm://user/{username}/top/artists/{period}` - Get top artists for a time period
-- **Top Tracks**: `lastfm://user/{username}/top/tracks/{period}` - Get top tracks for a time period
-- **Loved Tracks**: `lastfm://user/{username}/loved` - Get user's loved/favorited tracks
-
 ### Tools
 - **search_music** - Search for tracks or artists
 - **get_user_stats** - Get comprehensive user listening statistics
@@ -22,6 +14,14 @@ An unofficial Desktop Extension (DXT) server that provides access to Last.fm mus
 - **get_artist_info** - Get detailed information about an artist
 - **compare_users** - Compare listening habits between two users
 - **get_recommendations** - Get music recommendations based on user's taste
+
+### Resources
+- **User Profile**: `lastfm://user/{username}/profile` - Get user information and statistics
+- **Recent Tracks**: `lastfm://user/{username}/recent` - Get recently scrobbled tracks
+- **Now Playing**: `lastfm://user/{username}/nowplaying` - Get currently playing track
+- **Top Artists**: `lastfm://user/{username}/top/artists/{period}` - Get top artists for a time period
+- **Top Tracks**: `lastfm://user/{username}/top/tracks/{period}` - Get top tracks for a time period
+- **Loved Tracks**: `lastfm://user/{username}/loved` - Get user's loved/favorited tracks
 
 ## Setup
 
