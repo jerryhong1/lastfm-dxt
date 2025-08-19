@@ -1,0 +1,43 @@
+{
+  "dxt_version": "0.1",
+  "name": "lastfm-mcp-server",
+  "display_name": "Last.fm (Unofficial)",
+  "version": "0.1.0",
+  "description": "Access your Last.fm music data and listening history through MCP",
+  "author": {
+    "name": "Jerry Hong",
+    "url": "https://jerryhong.io"
+  },
+  "user_config": {
+    "lastfm_api_key": {
+      "type": "string",
+      "title": "Last.fm API Key",
+      "description": "Your Last.fm API key (get one at https://www.last.fm/api)",
+      "required": true
+    },
+    "default_username": {
+      "type": "string",
+      "title": "Default Username (Optional)",
+      "description": "Your Last.fm username to use by default",
+      "required": false
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.js"
+      ],
+      "env": {
+        "LASTFM_API_KEY": "${user_config.lastfm_api_key}",
+        "DEFAULT_USERNAME": "${user_config.default_username}"
+      }
+    }
+  },
+  "keywords": [
+    "music"
+  ],
+  "license": "ISC"
+}

@@ -5,7 +5,7 @@ import { LastFmClient } from "./client/lastfm.js";
 import { setupTools } from "./tools/index.js";
 
 const server = new FastMCP({
-  name: "Last.fm MCP Server",
+  name: "Last.fm (Unofficial) MCP Server",
   version: "1.0.0",
 });
 
@@ -18,8 +18,11 @@ if (!apiKey) {
 
 const lastfmClient = new LastFmClient(apiKey);
 
-// Setup tools (FastMCP doesn't support resources in the same way)
-setupTools(server, lastfmClient);
+// Get default username from environment (passed from manifest user_config)
+const defaultUsername = process.env.DEFAULT_USERNAME || undefined;
+
+// Setup tools with default username
+setupTools(server, lastfmClient, defaultUsername);
 
 // Start the server
 server.start({

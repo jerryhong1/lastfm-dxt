@@ -45,13 +45,22 @@ export class LastFmClient {
     return response.user;
   }
 
-  async getRecentTracks(username: string, limit = 50, page = 1): Promise<LastFmTrack[]> {
-    const response = await this.makeRequest<RecentTracksResponse>({
+  async getRecentTracks(username: string, limit = 50, page = 1, from?: number, to?: number): Promise<LastFmTrack[]> {
+    const params: Record<string, string> = {
       method: "user.getrecenttracks",
       user: username,
       limit: limit.toString(),
       page: page.toString(),
-    });
+    };
+    
+    if (from) {
+      params.from = from.toString();
+    }
+    if (to) {
+      params.to = to.toString();
+    }
+    
+    const response = await this.makeRequest<RecentTracksResponse>(params);
     return response.recenttracks.track;
   }
 

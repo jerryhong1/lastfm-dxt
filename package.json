@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Unofficial MCP server for accessing Last.fm music data and listening history",
   "dependencies": {
     "@types/node": "^24.1.0",
     "fastmcp": "^3.11.0",
